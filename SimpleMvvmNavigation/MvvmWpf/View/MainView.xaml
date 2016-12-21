@@ -1,0 +1,36 @@
+﻿<Window x:Class="MvvmWpf.View.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MvvmWpf"
+        xmlns:vm="clr-namespace:MvvmWpf.ViewModel"
+        mc:Ignorable="d"
+        Title="MainView" Height="350" Width="525">
+    <Window.DataContext>
+        <vm:MainViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <ContentControl Margin="10" 
+                        Content="{Binding CurrentViewModel}"/>
+
+        <StackPanel Orientation="Horizontal" 
+                    Grid.Row="1" 
+                    Margin="5">
+
+            <Button Content="Go to first view" 
+                    Margin="5"
+                    Command="{Binding GoToFirstViewCommand}"/>
+
+            <Button Content="Go to second view" 
+                    Margin="5"
+                    Command="{Binding GoToSecondViewCommand}"/>
+
+        </StackPanel>
+    </Grid>
+</Window>
